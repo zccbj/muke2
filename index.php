@@ -1,6 +1,16 @@
 <?php
 ini_set("display_errors", "On"); 
-require_once('lians.php');
- $db=new Db();
-$sql=$db->from('user')->where('age>10')->order('grade desc')->select();
-echo $sql;
+define('BASEDIR', __DIR__);
+
+include BASEDIR.'/IMooc/Loader.php';
+spl_autoload_register('IMooc\Loader::autoload');
+//IMooc\Object::test();
+use APP\Controller\Home;
+Home\Index::test();
+$obj=new Home\Index();
+$obj->title="helod";
+$obj->title;
+$obj->title("zcc");//调用没有定义的方法
+Home\Index::test1('qq');
+echo $obj;//输出对象
+echo $obj("11");//把对象当方法使用
