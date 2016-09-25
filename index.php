@@ -17,3 +17,12 @@ use APP\Controller\Home;
 IMooc\Factory::createDb();
 $db=IMooc\Register::get('db1');
 $db->name=3;
+
+// $db=new IMooc\Database\MySQL();
+// $db->connect(,,,,);
+// $db->query('select * from user');
+// $db->close();
+/**
+* 
+*/
+
