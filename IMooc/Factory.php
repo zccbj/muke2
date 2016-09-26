@@ -9,4 +9,15 @@ class Factory{
 
 		//return $db;
 	}
+
+	static function getUser($id){
+		//注册器模式
+		$key = 'user_'.$id;
+		$user = Register::get($key);
+		if(!$user){
+			$user = new User($id);
+			Register::set($key,$user);
+		}
+		return $user;
+	} 
 }
