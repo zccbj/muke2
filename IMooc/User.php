@@ -3,6 +3,8 @@ namespace IMooc;
 
 class User
 {
+	//1数据对象映射模式，是将对象和数据存储映射起来，对一个对象的操作会映射为对数据存储的操作。
+	//2将复杂的sql语句映射成对象属性的操作。
     protected $id;
     protected $data;
     protected $db;
