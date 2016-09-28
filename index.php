@@ -25,5 +25,10 @@ $db->name=3;
 /**
 * 
 */
-
+$canvas1=new IMooc \Canvas();
+$canvas1->init();
+//$canvas1->addDecorator(new IMooc\ColorDrawDecorator());
+$canvas1->addDecorator(new IMooc\SizeDrawDecorator(30));
+$canvas1->rect(3,6,4,12);
+$canvas1->draw();
 
