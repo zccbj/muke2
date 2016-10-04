@@ -1,40 +1,22 @@
-<?php
-ini_set("display_errors", "On"); 
-define('BASEDIR', __DIR__);
-
-include BASEDIR.'/IMooc/Loader.php';
-spl_autoload_register('IMooc\Loader::autoload');
-//IMooc\Object::test();
-use APP\Controller\Home;
-//Home\Index::test();
-// $obj=new Home\Index();
-// $obj->title="helod";
-// $obj->title;
-// $obj->title("zcc");//调用没有定义的方法
-// Home\Index::test1('qq');
-// echo $obj;//输出对象
-// echo $obj("11");//把对象当方法使用
-IMooc\Factory::createDb();
-$db=IMooc\Register::get('db1');
-$db->name=3;
-
-// $db=new IMooc\Database\MySQL();
-// $db->connect(,,,,);
-// $db->query('select * from user');
-// $db->close();
-/**
-* 
-*/
-// $canvas1=new IMooc \Canvas();
-// $canvas1->init();
-// //$canvas1->addDecorator(new IMooc\ColorDrawDecorator());
-// $canvas1->addDecorator(new IMooc\SizeDrawDecorator(30));
-// $canvas1->rect(3,6,4,12);
-// $canvas1->draw();
-/**
- * 
+<?php 
+/**入口文件
+ *1定义常量
+ *2加载函数库
+ *3启动框架
  */
-$users=new \IMooc\AllUser();
-foreach ($users as $user) {
-	var_dump($user->name);
+//define('BASEDIR', __DIR__);//和下面的一样
+
+define('DS', DIRECTORY_SEPARATOR);//分隔符
+define('IMOOC',realpath('.').DS);
+define('CORE',IMOOC.'core'.DS);
+define('APP',IMOOC.'app'.DS);
+define('DEBUG',true);
+if(DEBUG){
+	ini_set('display_error', true);
+}else{
+	ini_set('display_error', false);
 }
+include CORE.'imooc.php';
+spl_autoload_register('core\imooc::loader');
+$a=new core\lib\route;
+var_dump($_GET);
